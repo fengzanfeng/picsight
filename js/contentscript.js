@@ -6,6 +6,27 @@
     $("#tag-search-outer").prev().before($("#tag-search-outer"));
 
 	//generate relative tages
+    //用对象属性对数组去重
+    function ov5(ar){
+        var m,n=[],o= {};
+        for (var i=0;(m= ar[i])!==undefined;i++)
+            if (!o[m]) {
+                n.push(m);o[m]=true;
+            }
+        return n.sort(function(a,b){return a-b});;
+    }
+
+    function generateRelativeTags() {
+        var parent = $("div.feed-tag.clearfix");
+        var tags = parent.find("a");
+        tags = ov5(tags);
+        for (i=0;i<tags.length;i++) {
+            var div = $("<div>");
+            div.append(tags[i]);
+            $("#aside").append(div);        
+        }
+    }
+    generateRelativeTags();
 
 	//generate pic download link
 	function getEachBigPicUrl(node){

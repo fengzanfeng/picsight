@@ -1,6 +1,5 @@
 #header-holder{display:none;}
 div.hot-tags-holder{display:none;}
-#aside{display:none;}
 
 #aside-reg-login{display:none;}
 #js-top-contributor{display:none;}
@@ -14,3 +13,6 @@ div.feed.feed-video{display:none;}
 div.feed.feed-link{display:none;}
 div.photos-desc.rich-content{display:none;}
 div.feed-img-desc.rich-content{display:none;}
+
+div.feed-tag.clearfix{display:none;}
+div.feed-act{display:none;}
