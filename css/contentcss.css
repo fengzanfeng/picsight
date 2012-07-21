@@ -30,6 +30,7 @@ div.wall-t{display:none;}
 div.wall-b{display:none;}
 div.wall-l{display:none;}
 div.wall-r{display:none;}
+s.player-icon{display:none;}
 
 #tag-search-outer{width:750px;}
 #content{overflow-x: hidden; width: 760px!important;}
