@@ -119,19 +119,6 @@ $(function(){
 
 window.setInterval(update_wall, 5000);
 
-function sort_item(arr) {
-    for(i=0; i<arr.length; i++) {
-        console.log(arr[i]);
-        class_name = $(arr[i]).attr("class");
-        if (class_name.toString().valueOf("cell-photo") != -1) {
-            console.log("is photo");
-        } else {
-            console.log("===========");
-        }
-
-        //$(arr[i]).remove();
-    }
-}
 function update_wall() {
     $("#_dd_shortcut_tip").remove();
 
