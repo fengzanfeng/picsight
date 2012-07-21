@@ -1,4 +1,10 @@
 (function(){
+    $("#_dd_shortcut_tip").remove();
+    //$("div.cell.cell-text").remove();
+    //$("div.cell.cell-audio").remove();
+    //$("div.cell.cell-useraudio").remove();
+    //$("div.cell.cell-video").remove();
+
     $("div.cell.cell-photo").live("click", function() {
         window.location.href = $(this).attr('data-url');
     })
@@ -77,3 +83,19 @@
 	//getAllBigPicUrl();
 
 })();
+
+// DOM结构绘制完毕后就执行，不必等到加载完毕
+$(function(){
+});
+
+
+window.setInterval(update_wall, 500);
+function update_wall() {
+    console.log('refresh wall');
+    var parent = $("div.row.clearfix");
+    $("#_dd_shortcut_tip").remove();
+    //$("div.cell.cell-text").remove();
+    //$("div.cell.cell-audio").remove();
+    //$("div.cell.cell-useraudio").remove();
+    //$("div.cell.cell-video").remove();
+}
