@@ -24,8 +24,13 @@ a.post-source-share{display:none;}
 div.row.clearfix{width:750px!important;}
 div.wall-holder{width:750px!important;}
 div.recommend-wall{width:750px!important;}
+div.recommend-wall-wrap{width:750px!important;}
 
 div.wall-t{display:none;}
 div.wall-b{display:none;}
 div.wall-l{display:none;}
 div.wall-r{display:none;}
+
+#tag-search-outer{width:750px;}
+#content{overflow-x: hidden; width: 760px!important;}
+#content-holder{margin-left: auto;margin-right: auto;}
