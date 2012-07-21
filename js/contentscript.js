@@ -1,9 +1,5 @@
 (function(){
     $("#_dd_shortcut_tip").remove();
-    //$("div.cell.cell-text").remove();
-    //$("div.cell.cell-audio").remove();
-    //$("div.cell.cell-useraudio").remove();
-    //$("div.cell.cell-video").remove();
 
     $("div.cell.cell-photo").live("click", function() {
         window.location.href = $(this).attr('data-url');
@@ -89,13 +85,43 @@ $(function(){
 });
 
 
-window.setInterval(update_wall, 500);
+window.setInterval(update_wall, 5000);
+
+function sort_item(arr) {
+    for(i=0; i<arr.length; i++) {
+        console.log(arr[i]);
+        class_name = $(arr[i]).attr("class");
+        if (class_name.toString().valueOf("cell-photo") != -1) {
+            console.log("is photo");
+        } else {
+            console.log("===========");
+        }
+
+        //$(arr[i]).remove();
+    }
+}
 function update_wall() {
-    console.log('refresh wall');
-    var parent = $("div.row.clearfix");
     $("#_dd_shortcut_tip").remove();
-    //$("div.cell.cell-text").remove();
-    //$("div.cell.cell-audio").remove();
-    //$("div.cell.cell-useraudio").remove();
-    //$("div.cell.cell-video").remove();
+
+    var photocells = $("div.wall-holder").find("div.cell.cell-photo");
+    var audiocells = $("div.wall-holder").find("div.cell.cell-audio");
+    var useraudiocells = $("div.wall-holder").find("div.cell.cell-useraudio");
+    var videocells = $("div.wall-holder").find("div.cell.cell-audio");
+    var textcells = $("div.wall-holder").find("div.cell.cell-text");
+
+    for (i=0;i<audiocells.length;i++) {
+        audiocells[i] = photocells[0];
+    }
+
+    for (j=0;j<useraudiocells.length;j++) {
+        useraudiocells[j] = photocells[3];
+    }
+
+    for (k=0;k<videocells.length;k++) {
+        videocells[k] = photocells[6];
+    }
+
+    for (l=0;l<textcells.length;l++) {
+        textcells[l] = photocells[9];
+    }
 }
