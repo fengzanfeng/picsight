@@ -76,7 +76,7 @@
     			var downloadLink = $("<a href='javascript:' rel='download'>下载图片</a>");
     			downloadLink.on("click",(function(index){
     				return function(){
-	    				var elems = $($("div.feed.feed-photo")[index]).find("a");
+	    				var elems = $($("div.feed.feed-photo div.feed-img-all")[index]).find("a.wanDouPicLink");
 	    				alert(elems.length);
 	    				for(var i=0;i<elems.length;i++){
 	    					elems[i].click();
