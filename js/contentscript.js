@@ -50,7 +50,7 @@
 
 
     		//add a half cover layer
-    		var picCells = $(parent[i]).find("img.feed-img");
+    		var picCells = $($("div.feed.feed-photo div.feed-img-thumb")[i]).find("img.feed-img");
     		for(var j=0;j<picCells.length;j++){
     			//alert(picCells[j].);
     			var url = $(picCells[j]).attr("imgsrc");
@@ -60,12 +60,15 @@
 	    			var tmpName = url.substring(url.lastIndexOf("/")+1);
 	    			var tmp_width = parseInt(tmpArr[1]);
 	    			var tmp_height = ($(picCells[j]).width()/tmp_width)*parseInt(tmpArr[2]);
+	    			var _href = decodeURI(window.location.href);
+	    			var tagName = _href.substring(_href.indexOf('tag/')+4,_href.indexOf("?"));
+	    			
 	    			var style = "position:absolute;display:block;z-index:1000;under-line:none;font-weight:bold;color:#fff;font-size:20px;opacity:0.8;background-color:#444;"+
 	    						"width:"+$(picCells[j]).width()/2+"px;"+
 	    						"height:"+tmp_height+ "px;line-height:"+tmp_height+ "px;"+
-	    						"top:10px;"+
+	    						"top:0px;"+
 	    						"left:"+$(picCells[j]).width()/2+"px;";
-	    			var coverA = $("<a style='"+style+"' class='wanDouPicLink' href='"+url+"#name="+name+"' rel='download'>Download</a>");
+	    			var coverA = $("<a style='"+style+"' class='wanDouPicLink' href='"+url+"#name="+name+"&filepath=/sdcard/wandoujia/pictures/"+tagName+"' rel='download'>Download</a>");
 
 	    			coverA.insertAfter($(picCells[j]));
     			 }
