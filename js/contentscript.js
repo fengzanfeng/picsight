@@ -1,13 +1,9 @@
 (function(){
-	//remove head
+    $("div.cell.cell-photo").live("click", function() {
+        window.location.href = $(this).attr('data-url');
+    })
 
-	//remove login form
-
-	//remove hot-tags-holder
-
-	//reposition search box to top
-
-	//remove head pics
+    $("#tag-search-outer").prev().before($("#tag-search-outer"));
 
 	//generate relative tages
 
