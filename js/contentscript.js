@@ -51,17 +51,7 @@
     		var firstPicUrl = getEachBigPicUrl($(parent[i]).find("script")[0])[0];
     		var name = firstPicUrl.substring(firstPicUrl.lastIndexOf("/")+1);
     		var picNodes = $(parent[i]).find("div.feed-act");
-    		if(picNodes){
-    			var downloadLink = $("<a href='javascript:' rel='download'>下载图片</a>");
-    			downloadLink.on("click",function(){
-    				var elems = $(parent[i]).find("a.wanDouPicLink");
-    				alert(elems.lenght);
-    				for(var i=0;i<elems.length;i++){
-    					elems[i].click();
-    				}
-    			});
-    			downloadLink.insertBefore($("div.feed.feed-photo div.feed-act")[i].firstChild);
-    		}
+
 
     		//add a half cover layer
     		var picCells = $(parent[i]).find("img.feed-img");
@@ -79,10 +69,25 @@
 	    						"height:"+tmp_height+ "px;line-height:"+tmp_height+ "px;"+
 	    						"top:10px;"+
 	    						"left:"+$(picCells[j]).width()/2+"px;";
-	    			var coverA = $("<a style='"+style+"' className='wanDouPicLink' href='"+url+"#name="+name+"' rel='download'>Download</a>");
+	    			var coverA = $("<a style='"+style+"' class='wanDouPicLink' href='"+url+"#name="+name+"' rel='download'>Download</a>");
 
 	    			coverA.insertAfter($(picCells[j]));
     			 }
+    		}
+
+    		//add download link
+    		if(picNodes){
+    			var downloadLink = $("<a href='javascript:' rel='download'>下载图片</a>");
+    			downloadLink.on("click",(function(index){
+    				return function(){
+	    				var elems = $($("div.feed.feed-photo")[index]).find("a");
+	    				alert(elems.length);
+	    				for(var i=0;i<elems.length;i++){
+	    					elems[i].click();
+	    				}
+    				}
+    			})(i));
+    			downloadLink.insertBefore($("div.feed.feed-photo div.feed-act")[i].firstChild);
     		}
     	}
 
