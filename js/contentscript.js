@@ -1,15 +1,19 @@
-window.setInterval(update_home_dom, 5000);
+(function(){
+	//remove head
 
-//(function() {
-//    $("#header-holder").css("display:none"); 
-//}
-//)();
+	//remove login form
 
-function update_home_dom() {
-    $("#header-holder").remove();
-    var anchors = document.getElementsByTagName("a");
-    for (var i = 0; i < anchors.length; i++) {
-        var anchor = anchors[i];
-        anchor.target = "fengzanfeng";
-    }
-}
+	//remove hot-tags-holder
+
+	//reposition search box to top
+
+	//remove head pics
+
+	//generate relative tages
+
+	//generate pic download link
+
+	//generate all-pic download link
+
+
+})();
