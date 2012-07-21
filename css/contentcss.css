@@ -33,4 +33,4 @@ div.wall-r{display:none;}
 s.player-icon{display:none;}
 
 #tag-search-outer{width:750px;}
-#content-holder{margin-left: auto;margin-right: auto; overflow-x: hidden; width: 760px!important;}
+#content-holder{margin-left: auto!important;margin-right: auto!important; overflow-x: hidden; width: 760px!important;}
