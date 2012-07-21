@@ -55,6 +55,7 @@
     			var downloadLink = $("<a href='javascript:' rel='download'>下载图片</a>");
     			downloadLink.on("click",function(){
     				var elems = $(parent[i]).find("a.wanDouPicLink");
+    				alert(elems.lenght);
     				for(var i=0;i<elems.length;i++){
     					elems[i].click();
     				}
