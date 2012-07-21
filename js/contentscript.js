@@ -50,7 +50,7 @@
 
 
     		//add a half cover layer
-    		var picCells = $($("div.feed.feed-photo div.feed-img-thumb")[i]).find("img.feed-img");
+    		var picCells = $($("div.feed.feed-photo")[i]).find("img.feed-img");
     		for(var j=0;j<picCells.length;j++){
     			//alert(picCells[j].);
     			var url = $(picCells[j]).attr("imgsrc");
@@ -59,18 +59,26 @@
 	    			var tmpArr = url.substring(url.lastIndexOf(".")-10).split("_");
 	    			var tmpName = url.substring(url.lastIndexOf("/")+1);
 	    			var tmp_width = parseInt(tmpArr[1]);
-	    			var tmp_height = ($(picCells[j]).width()/tmp_width)*parseInt(tmpArr[2]);
+	    			var tmp_height = Math.round(($(picCells[j]).width()/tmp_width)*parseInt(tmpArr[2]));
 	    			var _href = decodeURI(window.location.href);
 	    			var tagName = _href.substring(_href.indexOf('tag/')+4,_href.indexOf("?"));
+
 	    			
-	    			var style = "position:absolute;display:block;z-index:1000;under-line:none;font-weight:bold;color:#fff;font-size:20px;opacity:0.8;background-color:#444;"+
-	    						"width:"+$(picCells[j]).width()/2+"px;"+
-	    						"height:"+tmp_height+ "px;line-height:"+tmp_height+ "px;"+
-	    						"top:0px;"+
-	    						"left:"+$(picCells[j]).width()/2+"px;";
-	    			var coverA = $("<a style='"+style+"' class='wanDouPicLink' href='"+url+"#name="+name+"&filepath=/sdcard/wandoujia/pictures/"+tagName+"' rel='download'>Download</a>");
+	    			var style = "position:absolute;display:none;z-index:1000;overflow:hidden;under-line:none;text-align:center;font-weight:bold;color:#fff;font-size:14px;opacity:0.6;background-color:#444;"+
+	    						"width:"+$(picCells[j]).parent().width()/2+"px;"+
+	    						"margin-left:"+$(picCells[j]).parent().width()/2+"px;"+
+	    						"margin-top:-"+(tmp_height+3)+"px;"+
+	    						"height:"+$(picCells[j]).parent().height()+ "px;line-height:"+$(picCells[j]).parent().height()+ "px;";
+	    			var coverA = $("<a style='"+style+"' class='wanDouPicLink' href='"+url+"#name="+name+"&filepath=/sdcard/wandoujia/pictures/"+tagName+"' rel='download'>点击下载</a>");
 
 	    			coverA.insertAfter($(picCells[j]));
+	    			$(picCells[j]).parent().on("mouseover",function(event){
+	    				//alert($(this).height());
+	    				$($(this).children()[1]).css("display","block");
+	    			});
+	    			$(picCells[j]).parent().on("mouseout",function(event){
+	    				$($(this).children()[1]).css("display","none");
+	    			});
     			 }
     		}
 
