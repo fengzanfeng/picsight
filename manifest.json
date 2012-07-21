@@ -1,7 +1,7 @@
 {
     "name": "点图成睛",
     "version": "1.0.0.0",
-    "description": "点图成睛 - 图片阅读",
+    "description": "点图成睛 - 图片阅读和下载",
     "content_scripts": [
         {
             "matches": ["http://*.diandian.com/*"],
