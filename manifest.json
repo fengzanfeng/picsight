@@ -1,0 +1,37 @@
+{
+    "name": "点图成睛",
+    "version": "1.0.0.0",
+    "description": "点图成睛 - 图片阅读",
+    "content_scripts": [
+        {
+            "matches": ["http://*.diandian.com/*"],
+            "js": ["contentscript.js"],
+            "css": ["contentcss.css"],
+            "run_at": "document_end",
+            "all_frames": false
+        }
+    ],
+    "icons": {
+        "16": "icon16.png",
+        "72": "icon72.png"
+    },
+    "app": {
+        "launch": {
+            "web_url": "http://diandian.com"
+        },
+        "navigation": [
+            {
+                "label": "宠物",
+                "web_url": "http://www.diandian.com/tag/宠物"
+            },
+            {
+                "label": "美女",
+                "web_url": "http://www.diandian.com/tag/美女"
+            },
+            {
+                "label": "风景",
+                "web_url": "http://www.diandian.com/tag/风景"
+            }
+        ]
+    }
+}
