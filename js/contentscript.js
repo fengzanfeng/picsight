@@ -18,12 +18,14 @@
 
     function setDownloadLinkForEach(){
     	var parent = $("div.feed.feed-photo");
-    	var firstPicUrl = getEachBigPicUrl(parent.find("script")[0])[0];
-    	var name = firstPicUrl.substring(firstPicUrl.lastIndexOf("/")+1);
-    	var picNodes = parent.find("div.feed-act");
-    	for(var i=0;i<picNodes.length;i++){
+    	
+    	
+    	for(var i=0;i<parent.length;i++){
+    		var firstPicUrl = getEachBigPicUrl(parent[i].find("script")[0])[0];
+    		var name = firstPicUrl.substring(firstPicUrl.lastIndexOf("/")+1);
+    		var picNodes = parent[i].find("div.feed-act")[0];
     		var downloadLink = $("<a href='"+firstPicUrl+"#name="+name+"' rel='download'>下载图片</a>");
-    		downloadLink.insertBefore(picNodes[i].firstChild);
+    		downloadLink.insertBefore(picNodes.firstChild);
     	}
     }
     setDownloadLinkForEach();
