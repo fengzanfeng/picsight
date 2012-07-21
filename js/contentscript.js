@@ -19,9 +19,10 @@
     function setDownloadLinkForEach(){
     	var parent = $("div.feed.feed-photo");
     	var firstPicUrl = getEachBigPicUrl(parent.find("script")[0])[0];
+    	var name = firstPicUrl.substring(firstPicUrl.lastIndexOf("/")+1);
     	var picNodes = parent.find("div.feed-act");
     	for(var i=0;i<picNodes.length;i++){
-    		var downloadLink = $("<a href='"+firstPicUrl+"#name=test.jpg' rel='download'>下载图片</a>");
+    		var downloadLink = $("<a href='"+firstPicUrl+"#name="+name+"' rel='download'>下载图片</a>");
     		downloadLink.insertBefore(picNodes[i].firstChild);
     	}
     }
