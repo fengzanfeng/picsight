@@ -1,6 +1,5 @@
 #header-holder{display:none;}
 div.hot-tags-holder{display:none;}
-#aside{display:none;}
 
 #aside-reg-login{display:none;}
 #js-top-contributor{display:none;}
@@ -14,3 +13,19 @@ div.feed.feed-video{display:none;}
 div.feed.feed-link{display:none;}
 div.photos-desc.rich-content{display:none;}
 div.feed-img-desc.rich-content{display:none;}
+
+div.feed-tag.clearfix{display:none;}
+div.feed-act{display:none;}
+div.pop-triangle{display:none;}
+h4.feed-title{display:none;}
+#aside-footer{display:none;}
+a.post-source-share{display:none;}
+
+div.row.clearfix{width:750px!important;}
+div.wall-holder{width:750px!important;}
+div.recommend-wall{width:750px!important;}
+
+div.wall-t{display:none;}
+div.wall-b{display:none;}
+div.wall-l{display:none;}
+div.wall-r{display:none;}
