@@ -117,7 +117,7 @@
 
     //add pagenext pageForward  downallInPage
     function threeTools(){
-    	var $downAll = $("<div title='ctrl+p'>下载本页图片</div>");
+    	var $downAll = $("<div title='ctrl+p' style='line-height:21px;!important;'>下载本页图片</div>");
     	$downAll.addClass("threeTools-item");
     	var $pageForward = $("<div title='ctrl+j'>上一页</div>");
     	$pageForward.addClass("threeTools-item");

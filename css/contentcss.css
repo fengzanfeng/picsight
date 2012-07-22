@@ -35,11 +35,10 @@ s.player-icon{display:none;}
 
 div.threeTools{
 	position: fixed;
-	text-indent: -9999px;
 	display: block;
 	bottom: 50%;
-	left: 50%;
-	margin-left: 250px;
+	left:50%;
+	margin-left:250px;
 	outline: none;
 	cursor:pointer;
 }
@@ -47,11 +46,14 @@ div.threeTools-item{
 	position:relative;
 	width:50px;
 	min-height: 42px;
+	line-height:42px;
+	text-align:center;
 	opacity:0.4;
 	background-color:#444;
 	border:1px solid #000;
-	color:red;
+	color:#fff;
 }
             
+a.scroll-to-top{margin-left: 250px!important;}
 #tag-search-outer{width:750px;}
 #content-holder{margin-left: auto!important;margin-right: auto!important; overflow-x: hidden; width: 760px!important;}
