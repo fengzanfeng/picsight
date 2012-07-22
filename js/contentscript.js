@@ -92,7 +92,6 @@
     			downloadLink.on("click",(function(index){
     				return function(){
 	    				var elems = $($("div.feed.feed-photo div.feed-img-all")[index]).find("a.wanDouPicLink");
-	    				alert(elems.length);
 	    				for(var i=0;i<elems.length;i++){
 	    					elems[i].click();
 	    				}
@@ -109,18 +108,33 @@
 
     //add pagenext pageForward  downallInPage
     function threeTools(){
-    	var $downAll = $("<div title='ctrl+p'>下载本页图片</div>");
+    	var $downAll = $("<div title='ctrl+p'>下</div>");
     	$downAll.addClass("threeTools-item");
-    	var $pageNext = $("<div title='ctrl+j'>上一页</div>");
+    	var $pageNext = $("<a title='ctrl+j'>上一页</a>");
     	$pageNext.addClass("threeTools-item");
     	var $pageForward = $("<div title='ctrl+k'>下一页</div>");
     	$pageForward.addClass("threeTools-item");
+    	$pageForward.on("click",function(){
+    		// var _href = window.location.href;
+    		// var page =_href.indexOf("?page=")?parseInt(_href.substring(_href.indexOf("?page=")+6)):0;
+    		// page++;
+    		// window.location.href = _href.substring(_href.indexOf("?") + "page="+page;
+    	});
     	var $parent = $("<div class='threeTools'></div>");
     	$parent.append($downAll).append($pageNext).append($pageForward);
     	$("#wrap").append($parent);
+
+    	$("body").on("keyup",function(event){
+    		if(event.keyCode==80&&event.ctrlKey==true){
+    			$("a.tagOneByOne").each(function(index,elem){
+    				$(elem).click();
+    			});
+    		}
+        });
     	
     }
     threeTools();
+    
 	//generate all-pic download link
 	function getAllBigPicUrl(){
 		var picNodes = $("div.feed.feed-photo script");

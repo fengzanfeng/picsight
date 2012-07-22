@@ -43,6 +43,7 @@ div.threeTools{
 	outline: none;
 }
 div.threeTools-item{
+	position:relative;
 	width:50px;
 	min-height: 42px;
 	opacity:0.4;
