@@ -181,6 +181,13 @@
 				$(elem).click();
 			});
     	});
+
+    	//wall  hidden three tools
+    	if(window.location.href.indexOf("wall")>0){
+    		$parent.hide();
+    	}else{
+    		$parent.show();
+    	}
     }
     threeTools();
     
