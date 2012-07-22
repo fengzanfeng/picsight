@@ -41,6 +41,7 @@ div.threeTools{
 	left: 50%;
 	margin-left: 250px;
 	outline: none;
+	cursor:pointer;
 }
 div.threeTools-item{
 	position:relative;

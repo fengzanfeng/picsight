@@ -44,6 +44,7 @@
    
     	
     	for(var i=0;i<parent.length;i++){
+    		var _bigPicUrls = getEachBigPicUrl($(parent[i]).find("script")[0]);
     		var firstPicUrl = getEachBigPicUrl($(parent[i]).find("script")[0])[0];
     		var name = firstPicUrl.substring(firstPicUrl.lastIndexOf("/")+1);
     		var picNodes = $(parent[i]).find("div.feed-act");
@@ -67,7 +68,15 @@
 	    		    	var tagName = _href.substring(_href.indexOf('tag/')+4);
 	    		    }
 
-	    			
+	    			// if($(picCells[j]).attr("data-origin-info")){
+	    			// 	var orginArr = $(picCells[j]).attr("data-origin-info").split(":");
+	    			// 	if(orginArr[orginArr.length-2]&&_bigPicUrls){
+
+	    			// 	}
+	    			// }
+	    			if(_bigPicUrls[j]){
+	    				url = _bigPicUrls[j];
+	    			}
 	    			var style = "position:absolute;display:none;z-index:1000;overflow:hidden;under-line:none;text-align:center;font-weight:bold;color:#fff;font-size:14px;opacity:0.6;background-color:#444;"+
 	    						"width:"+$(picCells[j]).parent().width()/2+"px;"+
 	    						"margin-left:"+$(picCells[j]).parent().width()/2+"px;"+
@@ -108,20 +117,49 @@
 
     //add pagenext pageForward  downallInPage
     function threeTools(){
-    	var $downAll = $("<div title='ctrl+p'>下</div>");
+    	var $downAll = $("<div title='ctrl+p'>下载本页图片</div>");
     	$downAll.addClass("threeTools-item");
-    	var $pageNext = $("<a title='ctrl+j'>上一页</a>");
-    	$pageNext.addClass("threeTools-item");
-    	var $pageForward = $("<div title='ctrl+k'>下一页</div>");
+    	var $pageForward = $("<div title='ctrl+j'>上一页</div>");
     	$pageForward.addClass("threeTools-item");
-    	$pageForward.on("click",function(){
-    		// var _href = window.location.href;
-    		// var page =_href.indexOf("?page=")?parseInt(_href.substring(_href.indexOf("?page=")+6)):0;
-    		// page++;
-    		// window.location.href = _href.substring(_href.indexOf("?") + "page="+page;
-    	});
+    	var $pageNext = $("<div title='ctrl+k'>下一页</div>");
+    	$pageNext.addClass("threeTools-item");
+    	//function page Forward
+    	function pageForward(){
+    		 var _href = decodeURI(window.location.href);
+    		 var page = 0;
+    		 if(_href.indexOf("?page=")>0){
+    		 	page = _href.substring(parseInt(_href.indexOf("?page="))+6);
+    		 	page--;
+    		 	if(page==0){
+    		 		window.location.href = _href.substring(0,_href.indexOf("?"));
+    		 		$(this).hide();
+    		 	}else{
+    		 		window.location.href = _href.substring(0,_href.indexOf("?")) + "?page="+page;
+    		 	}
+    		 }else{
+
+    		 }
+    	}
+    	//function page next
+    	function pageNext(){
+    		 var _href = decodeURI(window.location.href);
+    		 var page = 0;
+    		 if(_href.indexOf("?page=")>0){
+    		 	page = _href.substring(parseInt(_href.indexOf("?page="))+6);
+    		 	page++;
+    		 	window.location.href = _href.substring(0,_href.indexOf("?")) + "?page="+page;
+    		 }else{
+    		 	window.location.href = _href.substring(0,_href.indexOf("?")) + "?page=2";
+    		 }
+    		 //var page =_href.indexOf("?page=")>0? parseInt(_href.substring(_href.indexOf("?page=")+6)):0;
+    		 //page++;
+    		 //window.location.href = _href.substring(_href.indexOf("?")) + "page="+page;
+    	}
+    	$pageForward.on("click",pageForward);
+    	$pageNext.on("click",pageNext);
+
     	var $parent = $("<div class='threeTools'></div>");
-    	$parent.append($downAll).append($pageNext).append($pageForward);
+    	$parent.append($downAll).append($pageForward).append($pageNext);
     	$("#wrap").append($parent);
 
     	$("body").on("keyup",function(event){
@@ -130,8 +168,19 @@
     				$(elem).click();
     			});
     		}
+    		if(event.keyCode==74&&event.ctrlKey==true){
+    			pageForward();
+    		}
+    		if(event.keyCode==75&&event.ctrlKey==true){
+    			pageNext();
+    		}
         });
     	
+    	$downAll.on("click",function(event){
+			$("a.tagOneByOne").each(function(index,elem){
+				$(elem).click();
+			});
+    	});
     }
     threeTools();
     
