@@ -61,7 +61,11 @@
 	    			var tmp_width = parseInt(tmpArr[1]);
 	    			var tmp_height = Math.round(($(picCells[j]).width()/tmp_width)*parseInt(tmpArr[2]));
 	    			var _href = decodeURI(window.location.href);
-	    			var tagName = _href.substring(_href.indexOf('tag/')+4,_href.indexOf("?"));
+	    			if(_href.indexOf("?")>0){
+	    				var tagName = _href.substring(_href.indexOf('tag/')+4,_href.indexOf("?"));
+	    		    }else{
+	    		    	var tagName = _href.substring(_href.indexOf('tag/')+4);
+	    		    }
 
 	    			
 	    			var style = "position:absolute;display:none;z-index:1000;overflow:hidden;under-line:none;text-align:center;font-weight:bold;color:#fff;font-size:14px;opacity:0.6;background-color:#444;"+
@@ -69,7 +73,7 @@
 	    						"margin-left:"+$(picCells[j]).parent().width()/2+"px;"+
 	    						"margin-top:-"+(tmp_height+3)+"px;"+
 	    						"height:"+$(picCells[j]).parent().height()+ "px;line-height:"+$(picCells[j]).parent().height()+ "px;";
-	    			var coverA = $("<a style='"+style+"' class='wanDouPicLink' href='"+url+"#name="+name+"&filepath=/sdcard/wandoujia/pictures/"+tagName+"' rel='download'>点击下载</a>");
+	    			var coverA = $("<a style='"+style+"' class='wanDouPicLink' href='"+url+"#name="+tmpName+"&filepath=/sdcard/wandoujia/pictures/"+tagName+"' rel='download'>点击下载</a>");
 
 	    			coverA.insertAfter($(picCells[j]));
 	    			$(picCells[j]).parent().on("mouseover",function(event){
@@ -105,11 +109,18 @@
 
     //add pagenext pageForward  downallInPage
     function threeTools(){
-    	var downAll = $("<div>");
-    	var pageNext = $("<div>");
-    	var pageForward = $("<div>");
+    	var $downAll = $("<div title='ctrl+p'>下载本页图片</div>");
+    	$downAll.addClass("threeTools-item");
+    	var $pageNext = $("<div title='ctrl+j'>上一页</div>");
+    	$pageNext.addClass("threeTools-item");
+    	var $pageForward = $("<div title='ctrl+k'>下一页</div>");
+    	$pageForward.addClass("threeTools-item");
+    	var $parent = $("<div class='threeTools'></div>");
+    	$parent.append($downAll).append($pageNext).append($pageForward);
+    	$("#wrap").append($parent);
+    	
     }
-
+    threeTools();
 	//generate all-pic download link
 	function getAllBigPicUrl(){
 		var picNodes = $("div.feed.feed-photo script");

@@ -33,5 +33,23 @@ div.wall-l{display:none;}
 div.wall-r{display:none;}
 s.player-icon{display:none;}
 
+div.threeTools{
+	position: fixed;
+	text-indent: -9999px;
+	display: block;
+	bottom: 50%;
+	left: 50%;
+	margin-left: 250px;
+	outline: none;
+}
+div.threeTools-item{
+	width:50px;
+	min-height: 42px;
+	opacity:0.4;
+	background-color:#444;
+	border:1px solid #000;
+	color:red;
+}
+
 #tag-search-outer{width:750px;}
 #content-holder{margin-left: auto!important;margin-right: auto!important; overflow-x: hidden; width: 760px!important;}
