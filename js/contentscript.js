@@ -1,5 +1,6 @@
 (function(){
     $("#_dd_shortcut_tip").remove();
+    $("a.link-to-post{").remove();
 
     $("div.cell.cell-photo").live("click", function() {
         window.location.href = $(this).attr('data-url');
@@ -225,6 +226,7 @@ window.setInterval(update_wall, 5000);
 
 function update_wall() {
     $("#_dd_shortcut_tip").remove();
+    $("div.link-to-post-inner").remove();
 
     var photocells = $("div.wall-holder").find("div.cell.cell-photo");
     var audiocells = $("div.wall-holder").find("div.cell.cell-audio");

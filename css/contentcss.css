@@ -21,6 +21,9 @@ div.pop-triangle{display:none;}
 h4.feed-title{display:none;}
 #aside-footer{display:none;}
 a.post-source-share{display:none;}
+div.link-to-post-holder{display:none;}
+a.link-to-post{display:none;}
+div.feed-basic{display:none;}
 
 div.row.clearfix{width:750px!important;}
 div.wall-holder{width:750px!important;}
