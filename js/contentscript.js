@@ -84,7 +84,7 @@
 
     		//add download link
     		if(picNodes){
-    			var downloadLink = $("<a href='javascript:' rel='download'>下载图片</a>");
+    			var downloadLink = $("<a href='javascript:' rel='download' class='tagOneByOne'>下载图片</a>");
     			downloadLink.on("click",(function(index){
     				return function(){
 	    				var elems = $($("div.feed.feed-photo div.feed-img-all")[index]).find("a.wanDouPicLink");
@@ -102,6 +102,13 @@
 
     }
     setDownloadLinkForEach();
+
+    //add pagenext pageForward  downallInPage
+    function threeTools(){
+    	var downAll = $("<div>");
+    	var pageNext = $("<div>");
+    	var pageForward = $("<div>");
+    }
 
 	//generate all-pic download link
 	function getAllBigPicUrl(){
